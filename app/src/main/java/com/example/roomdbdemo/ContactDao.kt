@@ -1,5 +1,6 @@
 package com.example.roomdbdemo
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -9,14 +10,14 @@ import androidx.room.Update
 @Dao
 interface ContactDao {
     @Insert
-    fun insertContact(contactDao: ContactDao)
+    suspend fun insertContact(contactDao: ContactDao)
 
     @Update
-    fun updateContact(contactDao: ContactDao)
+    suspend fun updateContact(contactDao: ContactDao)
 
     @Delete
-    fun deleteContact(contactDao: ContactDao)
+    suspend fun deleteContact(contactDao: ContactDao)
 
     @Query("SELECT * FROM contact")
-    fun getContacts(): List<Contact>
+    fun getContacts(): LiveData<List<Contact>>
 }
