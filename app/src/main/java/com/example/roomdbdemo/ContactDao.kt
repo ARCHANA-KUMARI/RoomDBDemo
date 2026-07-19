@@ -10,13 +10,13 @@ import androidx.room.Update
 @Dao
 interface ContactDao {
     @Insert
-    suspend fun insertContact(contactDao: ContactDao)
+    suspend fun insertContact(contact: Contact)
 
     @Update
-    suspend fun updateContact(contactDao: ContactDao)
+    suspend fun updateContact(contact: Contact)
 
     @Delete
-    suspend fun deleteContact(contactDao: ContactDao)
+    suspend fun deleteContact(contact: Contact)
 
     @Query("SELECT * FROM contact")
     fun getContacts(): LiveData<List<Contact>>
