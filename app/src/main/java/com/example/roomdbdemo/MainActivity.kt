@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.example.roomdbdemo.ui.theme.RoomDBDemoTheme
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.Date
 
 class MainActivity : ComponentActivity() {
     private lateinit var mDatabase: ContactDatabase
@@ -58,7 +59,7 @@ fun CenteredButtonColumn(mDatabase: ContactDatabase) {
     ) {
         Button(onClick = { Log.i(TAG, "CenteredButtonColumn: click on Insert")
             GlobalScope.launch {
-                mDatabase.contactDao().insertContact(Contact(1, "Archana", "8951251568"))
+                mDatabase.contactDao().insertContact(Contact(1, "Archana", "9989893849", Date()))
             }}) {
             Text("Insert")
         }
