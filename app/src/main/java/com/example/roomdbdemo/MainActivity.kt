@@ -18,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.room.Room
 import com.example.roomdbdemo.ui.theme.RoomDBDemoTheme
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -36,17 +35,12 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        //Todo 19TH July create singleton class
         if (!::mDatabase.isInitialized) {
-            mDatabase =
-                Room.databaseBuilder(applicationContext, ContactDatabase::class.java, "contactDB")
-                    .build()
+            mDatabase = ContactDatabase.getDataBase(applicationContext)
             Log.i(TAG, "onCreate: null block ${mDatabase}")
-        } else {
-            Log.i(TAG, "onCreate: null block else ${mDatabase}")
+            mDatabase = ContactDatabase.getDataBase(applicationContext)
+            Log.i(TAG, "onCreate: null block1 ${mDatabase}")
         }
-
-
     }
 }
 
