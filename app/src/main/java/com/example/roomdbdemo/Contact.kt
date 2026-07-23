@@ -9,5 +9,6 @@ data class Contact(
     @PrimaryKey(autoGenerate = true) val id: Long,
     val name: String,
     val mobile: String,
-    val createdDate : Long = System.currentTimeMillis()
+    val createdDate : Long = System.currentTimeMillis(),
+    val isActive  : Int
 )
