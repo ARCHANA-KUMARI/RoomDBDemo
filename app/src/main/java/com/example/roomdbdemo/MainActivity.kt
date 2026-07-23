@@ -59,7 +59,7 @@ fun CenteredButtonColumn(mDatabase: ContactDatabase) {
     ) {
         Button(onClick = { Log.i(TAG, "CenteredButtonColumn: click on Insert")
             GlobalScope.launch {
-                mDatabase.contactDao().insertContact(Contact(1, "Archana", "9989893849", Date()))
+                mDatabase.contactDao().insertContact(Contact(2, "Archana", "9989893849", System.currentTimeMillis()))
             }}) {
             Text("Insert")
         }
